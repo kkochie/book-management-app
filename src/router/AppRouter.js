@@ -14,7 +14,12 @@ const AppRouter = () => {
         <Header />
         <div className="main-content">
           <Switch>
-            <Route component={BooksList} path="/" exact={true} />
+            {/* Pass books and setBooks as props to BooksList */}
+            <Route 
+              render={(props) => (
+                <BooksList {...props} books={books} setBooks={setBooks} />
+              )} 
+              path="/" exact={true} />
             {/* Pass books and setBooks as props along with default props to AddBook so can add the book to local storage */}
             <Route 
               render={(props) => (
