@@ -1,9 +1,14 @@
 import React from 'react'
 import BookForm from './BookForm'
 
-const AddBook = () => {
+// history prop is automatically passed by React Router to every component mentioned in the <Route />
+const AddBook = ({ history, books, setBooks }) => {
   const handleOnSubmit = (book) => {
-    console.log(book)
+    // Storing all added books in an array with new book first then spreading previous books
+    // Able to use spread operator because books was initialized as an array in AppRouter.js
+    setBooks([book, ...books])
+    // Redirect to Books List page
+    history.push('/')
   }
 
   return (
