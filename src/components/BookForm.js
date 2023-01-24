@@ -6,12 +6,15 @@ const BookForm = (props) => {
   // Define state as an object to store all entered details
   // Since same form used to add and edit book, first check if book prop is passed or not
   // If prop passed, set to passed value otherwise an empty string
-  const [book, setBook] = useState({
-    bookname: props.book ? props.book.bookname : '',
-    author: props.book ? props.book.author : '',
-    quantity: props.book ? props.book.quantity : '',
-    price: props.book ? props.book.price : '',
-    date: props.book ? props.book.date : ''
+  // Use lazy initialization so only executed once
+  const [book, setBook] = useState(() => {
+    return {
+      bookname: props.book ? props.book.bookname : '',
+      author: props.book ? props.book.author : '',
+      quantity: props.book ? props.book.quantity : '',
+      price: props.book ? props.book.price : '',
+      date: props.book ? props.book.date : ''
+    }
   })
 
   // State for adding error message
