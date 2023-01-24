@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import BooksContext from '../context/BooksContext'
 import BookForm from './BookForm'
 
 // history prop is automatically passed by React Router to every component mentioned in the <Route />
-const AddBook = ({ history, books, setBooks }) => {
+const AddBook = ({ history }) => {
+  const { books, setBooks } = useContext(BooksContext)
+
   const handleOnSubmit = (book) => {
     // Storing all added books in an array with new book first then spreading previous books
     // Able to use spread operator because books was initialized as an array in AppRouter.js
