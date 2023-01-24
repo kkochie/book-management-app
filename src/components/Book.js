@@ -17,7 +17,7 @@ const Book = ({ id, bookname, author, price, quantity, date, handleRemoveBook })
         </div>
         {/* Add onClick handler to redirect user to /edit/id_of_the_book route when clicked */}
         <Button variant="primary" onClick={() => 
-          history.pushState(`/edit/${id}`)}>
+          history.push(`/edit/${id}`)}>
             Edit
         </Button>{''}
         <Button variant="danger" onClick={() =>
